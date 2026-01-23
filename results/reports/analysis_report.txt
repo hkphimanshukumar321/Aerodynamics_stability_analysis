@@ -1,0 +1,58 @@
+========================================
+AIRCRAFT FLIGHT STABILITY ANALYSIS REPORT
+========================================
+
+Generated: 23-Jan-2026 18:15:15
+
+DATA PROCESSING SUMMARY
+-----------------------------------
+Total files processed: 1647
+Coordinate files: 1646
+Coefficient files: 1
+Error files: 0
+Success rate: 100.0%
+
+AERODYNAMIC CALCULATIONS
+-----------------------------------
+Mean Aerodynamic Chord (MAC): 1.4100 m
+Aerodynamic Center (AC): 0.3525 m (25.0% of MAC)
+Center of Gravity (CG): 0.7050 m (50.0% of MAC)
+Static Margin: -0.3525 m
+Configuration Status: UNSTABLE
+
+STABILITY ANALYSIS
+-----------------------------------
+The static margin is the distance between the aerodynamic center
+and the center of gravity. A positive static margin indicates
+static stability, meaning the aircraft will tend to return to
+equilibrium after disturbances.
+
+CONCLUSION: The current configuration is UNSTABLE.
+The CG should be moved forward to achieve stability.
+
+
+FILES PROCESSED
+-----------------------------------
+Total: 1647 files
+Sample files (first 20):
+  1. 2032c.dat
+  2. 30p-30n.dat
+  3. a18.dat
+  4. a18sm.dat
+  5. a63a108c.dat
+  6. ag03.dat
+  7. ag04.dat
+  8. ag08.dat
+  9. ag09.dat
+  10. ag10.dat
+  11. ag11.dat
+  12. ag12.dat
+  13. ag13.dat
+  14. ag14.dat
+  15. ag16.dat
+  16. ag17.dat
+  17. ag18.dat
+  18. ag19.dat
+  19. ag23.dat
+  20. ag24.dat
+  ... and 1627 more files
