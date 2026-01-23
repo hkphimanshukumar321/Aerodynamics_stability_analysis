@@ -1,0 +1,33 @@
+# MATLAB/Octave
+*.asv
+*.m~
+*.fig
+*.mat
+
+# Output folder (generated files)
+output/
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.log
+test_*.txt
+
+# Keep sample data files
+!code/sample_*.json
+!code/sample_*.csv

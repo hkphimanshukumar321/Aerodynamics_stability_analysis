@@ -1,0 +1,8 @@
+{
+  "root_chord": 1.41,
+  "tip_chord": 1.41,
+  "wing_span": 1.0,
+  "wing_area": 1.41,
+  "wing_weight": 0.345,
+  "cg_fraction": 0.5
+}
