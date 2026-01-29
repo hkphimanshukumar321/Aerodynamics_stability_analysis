@@ -1,0 +1,9 @@
+Quantity,Value
+Battery_energy_Wh,61.56800000000001
+Hover_power_W (min feasible),1284.5624261993212
+Cruise_power_W,54.69058971170636
+Endurance_hover_only_min,2.875749690834257
+Endurance_cruise_only_min,67.5450752949057
+Cruise_CL,0.5170749711649364
+Cruise_CD,0.05621741483616996
+Cruise_Drag_N,1.7912133258637566

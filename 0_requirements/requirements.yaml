@@ -1,0 +1,71 @@
+# Tail-sitting VTOL UAV – Simulation-only Project Configuration
+# Edit ONLY this file for most of the pipeline. Units are SI unless stated.
+
+project:
+  name: "Tail-sitting VTOL UAV (Simulation-only)"
+  course: "Drone Technology"
+  due_date: "2026-01-23"
+  author: "Himanshu Kumar"
+  institute: "IIT BBS "
+
+mission:
+  payload_mass_kg: 0.40
+  avionics_mass_kg: 0.18
+  target_range_km: 8.0
+  target_endurance_min: 25.0
+  cruise_speed_mps: 17.0
+  max_wind_mps: 6.0
+  operation_altitude_m: 50.0
+
+geometry:
+  wing_span_m: 0.95
+  wing_area_m2: 0.18
+  taper_ratio: 0.6
+  mean_chord_m: 0.19
+  tail_sitter_fuselage_length_m: 0.55
+  reference_cg_from_nose_m: 0.28
+
+aerodynamics:
+  air_density_kgm3: 1.225
+  cd0: 0.035
+  oswald_efficiency_e: 0.80
+  cl0: 0.20
+  cl_alpha_per_rad: 5.2
+  cl_max: 1.2
+  stall_margin: 0.15
+
+propulsion:
+  configuration: "single"
+  thrust_to_weight_required: 2.0
+  motor_efficiency: 0.82
+  prop_efficiency_hover: 0.60
+  prop_efficiency_cruise: 0.70
+  esc_efficiency: 0.97
+
+battery:
+  chemistry: "LiPo"
+  cells_S: 4
+  nominal_voltage_V: 14.8
+  capacity_mAh: 5200
+  usable_fraction: 0.80
+  internal_resistance_ohm: 0.030
+  mass_kg: 0.45
+
+structure:
+  wing_spar:
+    material: "carbon_tube"
+    outer_diameter_m: 0.010
+    inner_diameter_m: 0.008
+    youngs_modulus_Pa: 70e9
+    yield_strength_Pa: 600e6
+  safety_factor_required: 2.0
+  load_factor_n: 2.5
+
+controls:
+  hover_attitude_bandwidth_hz: 3.0
+  cruise_attitude_bandwidth_hz: 2.0
+  max_tilt_deg: 35
+  transition_time_s: 4.0
+
+outputs:
+  artifacts_dir: "report/artifacts"
