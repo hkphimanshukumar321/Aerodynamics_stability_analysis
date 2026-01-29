@@ -1,0 +1,8 @@
+Geometry values filled automatically:
+- Span b = 1.05 m from project spec (1050 mm).
+- Chord c ≈ 0.228 m estimated from the appendix wing plan by scaling the template's pixel span
+  to half-span 0.525 m (since only one wing plan is provided and duplicated).
+- Wing area S = b*c ≈ 0.239 m^2.
+
+If you want exact chord, print the wing plan at 100% scale and measure root chord with a ruler,
+then update matlab/config/params_user.m.
