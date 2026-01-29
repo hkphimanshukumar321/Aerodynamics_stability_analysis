@@ -1,0 +1,23 @@
+Model {
+  Name "rc_trainer_linear_model"
+  Version 7.9
+  SavedCharacterEncoding "UTF-8"
+  System {
+    Name "rc_trainer_linear_model"
+    Block { BlockType Step Name "ElevatorStep" Position [55,80,85,110] Time "1" Before "0" After "0.0872665" }
+    Block { BlockType Step Name "ThrottleStep" Position [55,150,85,180] Time "1" Before "0" After "0" }
+    Block { BlockType Mux Name "MuxInputs" Inputs "2" Position [125,95,155,165] }
+    Block { BlockType StateSpace Name "LongitudinalSS" Position [205,85,335,175]
+      A "A_lon" B "B_lon" C "C_lon" D "D_lon" X0 "zeros(4,1)"
+    }
+    Block { BlockType Demux Name "DemuxStates" Outputs "4" Position [385,95,415,165] }
+    Block { BlockType Gain Name "Rad2Deg" Position [435,85,460,115] Gain "180/pi" }
+    Block { BlockType Scope Name "PitchAngleScope" Position [475,85,505,115] }
+    Line { SrcBlock "ElevatorStep" SrcPort 1 DstBlock "MuxInputs" DstPort 1 }
+    Line { SrcBlock "ThrottleStep" SrcPort 1 DstBlock "MuxInputs" DstPort 2 }
+    Line { SrcBlock "MuxInputs" SrcPort 1 DstBlock "LongitudinalSS" DstPort 1 }
+    Line { SrcBlock "LongitudinalSS" SrcPort 1 DstBlock "DemuxStates" DstPort 1 }
+    Line { SrcBlock "DemuxStates" SrcPort 4 DstBlock "Rad2Deg" DstPort 1 }
+    Line { SrcBlock "Rad2Deg" SrcPort 1 DstBlock "PitchAngleScope" DstPort 1 }
+  }
+}
