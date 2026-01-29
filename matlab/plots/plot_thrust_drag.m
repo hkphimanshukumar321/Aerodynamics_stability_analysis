@@ -1,9 +1,9 @@
 function plot_thrust_drag(outdir, p, aero, prop, trim)
 rho=p.env.rho; S=p.geom.S; W=p.mass.W;
-V=aero.V_grid;
+V=V_grid;
 
 CL = W ./ (0.5*rho.*V.^2.*S);
-CD = aero.CD0 + aero.k.*CL.^2;
+CD = CD0 + k.*CL.^2;
 D  = 0.5*rho.*V.^2.*S.*CD;
 T  = arrayfun(prop.T_available, V);
 

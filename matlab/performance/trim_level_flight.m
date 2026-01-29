@@ -4,7 +4,7 @@ V = p.test.V_trim;
 
 trim.V  = V;
 trim.CL = W/(0.5*rho*V^2*S);
-trim.CD = aero.CD0 + aero.k*trim.CL^2;
+trim.CD = CD0 + k*trim.CL^2;
 trim.D  = 0.5*rho*V^2*S*trim.CD;
 
 trim.T_available = prop.T_available(V);

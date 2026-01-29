@@ -26,16 +26,16 @@ p.mass.inertia.Jz = [];
 p.cg.target_frac_c = 0.30;
 
 % Aero (update CLmax later from XFLR5)
-p.aero.CLmax    = 1.2;
-p.aero.CD0      = 0.045;
-p.aero.e_oswald = 0.75;
+p.CLmax    = 1.2;
+p.CD0      = 0.045;
+p.e_oswald = 0.75;
 
 % Rough stability/control scalars (virtual test model parameters)
-p.aero.cm_alpha = -0.6;
-p.aero.cm_q     = -8.0;
-p.aero.cl_p     = -0.5;
-p.aero.cn_r     = -0.2;
-p.aero.cy_beta  = -0.6;
+p.cm_alpha = -0.6;
+p.cm_q     = -8.0;
+p.cl_p     = -0.5;
+p.cn_r     = -0.2;
+p.cy_beta  = -0.6;
 
 p.ctrl.cm_de = -1.0;  % dCm/d(de) per rad
 p.ctrl.cl_da =  0.08; % dCl/d(da) per rad

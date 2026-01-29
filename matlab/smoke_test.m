@@ -6,15 +6,16 @@ clc;
 startup; % adds matlab/ to path
 
 req = {
-    'config.load_params'
-    'sizing.compute_sizing'
-    'aero.build_aero'
-    'propulsion.build_propulsion'
-    'performance.trim_level_flight'
-    'dynamics.build_linear_models'
-    'dynamics.run_virtual_tests'
-    'plots.make_all_plots'
-    'io.write_struct'
+    'load_params'
+    'check_params'
+    'compute_sizing'
+    'build_aero'
+    'build_propulsion'
+    'trim_level_flight'
+    'build_linear_models'
+    'run_virtual_tests'
+    'make_all_plots'
+    'write_struct'
 };
 
 missing = {};

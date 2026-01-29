@@ -1,11 +1,11 @@
 function dyn = build_linear_models(p, aero, trim)
 g = p.env.g; V = trim.V;
-[Jx,Jy,Jz] = dynamics.estimate_inertia(p); %#ok<ASGLU>
+[Jx,Jy,Jz] = estimate_inertia(p); %#ok<ASGLU>
 
 % Longitudinal: x=[u w q theta], u=[de dt]
 Xu=-0.06*V; Xw=0.02*V;
 Zu=-0.10*V; Zw=-0.50*V;
-Mu=0.00; Mw=p.aero.cm_alpha*0.8; Mq=p.aero.cm_q*0.15;
+Mu=0.00; Mw=p.cm_alpha*0.8; Mq=p.cm_q*0.15;
 
 Xde=0.0; Zde=-0.2*V; Mde=p.ctrl.cm_de*0.6;
 Xdt=0.5; Zdt=0.0;   Mdt=0.0;
@@ -21,9 +21,9 @@ B_lon=[Xde Xdt;
 C_lon=eye(4); D_lon=zeros(4,2);
 
 % Lateral: x=[v p r phi psi], u=[da dr]
-Yv=p.aero.cy_beta*0.4*V;
-Lp=p.aero.cl_p*0.6*V;
-Nr=p.aero.cn_r*0.3*V;
+Yv=p.cy_beta*0.4*V;
+Lp=p.cl_p*0.6*V;
+Nr=p.cn_r*0.3*V;
 
 Lda=p.ctrl.cl_da*0.9;
 Ndr=p.ctrl.cn_dr*0.9;
