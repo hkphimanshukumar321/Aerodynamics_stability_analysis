@@ -1,0 +1,16 @@
+# MATLAB
+*.asv
+*.m~
+*.mex*
+*.mat
+*.p
+*.slxc
+*.autosave
+*~ 
+# Outputs
+outputs/figures/*
+outputs/data/*
+!.gitkeep
+# OS
+.DS_Store
+Thumbs.db
