@@ -1,0 +1,12 @@
+Quantity,Value
+AUW_kg,1.680000
+Load_factor_n,2.500
+Half_span_m,0.475000
+Uniform_load_w_N_per_m,43.355716
+I_m4,2.898119e-10
+Mmax_Nm,1.222767
+Sigma_max_Pa,2.109587e+07
+Deflection_max_m,1.416594e-03
+Yield_strength_Pa,6.000000e+08
+Factor_of_Safety,28.442
+FoS_requirement,2.000

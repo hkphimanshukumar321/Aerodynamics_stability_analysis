@@ -1,0 +1,11 @@
+Requirement,Value
+Payload mass (kg),0.4
+Avionics mass (kg),0.18
+Target range (km),8.0
+Target endurance (min),25.0
+Cruise speed (m/s),17.0
+Required thrust-to-weight,2.0
+Battery (S),4
+Battery nominal voltage (V),14.8
+Battery capacity (mAh),5200
+Battery usable fraction,0.8

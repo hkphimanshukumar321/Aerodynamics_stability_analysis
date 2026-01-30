@@ -1,0 +1,8 @@
+Component,Mass_kg
+Payload,0.4
+Avionics,0.18
+Battery,0.45
+Airframe (est.),0.35
+Motor+ESC+Prop (est.),0.22
+Misc,0.08
+AUW_total,1.68
