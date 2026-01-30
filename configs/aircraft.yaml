@@ -1,0 +1,62 @@
+# Baseline configuration (edit after you digitize the appendix plan)
+meta:
+  name: Foamboard RC Trainer (Virtual Validation)
+  version: 1.0
+
+environment:
+  rho: 1.225          # kg/m^3 (sea level standard)
+  g: 9.80665          # m/s^2
+
+geometry:
+  fuselage_length_m: 0.720   # from brief
+  wing:
+    span_m: 1.050            # from brief
+    area_m2: 0.210           # EDIT: approximate (depends on chord from appendix plan)
+    mean_chord_m: 0.200      # EDIT
+    taper_ratio: 0.80        # EDIT (root_chord/tip_chord)
+    dihedral_deg: 3.0        # optional assumption for trainer stability
+  tail:
+    horizontal_area_m2: 0.045  # EDIT
+    vertical_area_m2: 0.020    # EDIT
+    tail_arm_h_m: 0.350        # EDIT: wing AC to tail AC distance
+    tail_arm_v_m: 0.340        # EDIT
+
+aero:
+  CL_max: 1.20        # foamboard trainer (conservative)
+  CD0: 0.045          # coarse estimate for RC trainer
+  oswald_e: 0.75      # typical small fixed-wing
+
+masses_kg:
+  # Adjust these to match your parts list; sums should satisfy MTOW <= 0.860 kg
+  airframe_structure: 0.420
+  motor: 0.060
+  esc: 0.030
+  servos_total: 0.040
+  receiver: 0.010
+  landing_gear: 0.040
+  wiring_misc: 0.030
+  battery: 0.230
+
+component_positions_m:
+  # x positions measured from nose along fuselage axis (m)
+  # Use consistent reference for all components.
+  airframe_structure: 0.360
+  motor: 0.030
+  esc: 0.120
+  servos_total: 0.430
+  receiver: 0.350
+  landing_gear: 0.300
+  wiring_misc: 0.300
+  battery: 0.320
+
+propulsion:
+  thrust_available_N: 10.0     # EDIT based on motor/prop test data or datasheet
+  prop_diameter_in: 6.0        # metadata only
+  motor_kv: 2200               # metadata only
+
+battery:
+  cells: 3
+  capacity_mAh: 2200
+  nominal_cell_voltage_V: 3.7
+  usable_fraction: 0.80         # don't drain fully
+  avg_current_A: 12.0           # EDIT: estimated average current during cruise
