@@ -30,11 +30,13 @@ robot.DH = [ ...
     L4     0.0    0.0  0.0];  % joint4
 
 % Joint limits [min max] rad
+% Slightly wider pitch limits improve reachability while remaining realistic.
+limPitch = 2*pi/3; % 120 deg
 robot.qlim = [ ...
-    -pi      pi;       % yaw
-    -pi/2    pi/2;     % shoulder
-    -pi/2    pi/2;     % elbow
-    -pi/2    pi/2];    % wrist
+    -pi      pi;        % yaw
+    -limPitch limPitch; % shoulder
+    -limPitch limPitch; % elbow
+    -limPitch limPitch];% wrist
 
 robot.home = [0; 0.2; -0.4; 0.2];
 

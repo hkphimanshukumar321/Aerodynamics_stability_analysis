@@ -51,6 +51,11 @@ title(strrep(ylab,'_','\_'));
 legend(arrayfun(@(i) sprintf('Joint %d',i), 1:size(X,2), 'UniformOutput', false), ...
     'Location','bestoutside');
 drawnow;
-exportgraphics(fig, outFile);
+if exist('exportgraphics','file')
+    exportgraphics(fig, outFile);
+else
+    % Fallback for older MATLAB versions
+    saveas(fig, outFile);
+end
 close(fig);
 end

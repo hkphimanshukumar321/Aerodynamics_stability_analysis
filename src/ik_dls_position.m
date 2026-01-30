@@ -39,14 +39,35 @@ for k = 1:maxIters
 
     J = jacobian_numeric(robot, q); % 3xn
 
-    % DLS step
+    % DLS step (robust) with simple backtracking line-search.
+    % If the step does not reduce the error, shrink step; if repeated,
+    % increase damping.
     A = (J.'*J + (lambda^2)*eye(n));
     dq = A \ (J.'*e);
 
-    q = q + stepScale * dq;
+    s = stepScale;
+    improved = false;
+    for bt = 1:10
+        q_try = q + s * dq;
+        % clip to joint limits
+        q_try = min(max(q_try, robot.qlim(:,1)), robot.qlim(:,2));
 
-    % enforce joint limits softly (clip)
-    q = min(max(q, robot.qlim(:,1)), robot.qlim(:,2));
+        [~, p_all_t] = dh_fk(robot, q_try);
+        err_try = norm(p_target - p_all_t(:,end));
+
+        if err_try < err
+            q = q_try;
+            improved = true;
+            break;
+        end
+        s = 0.5*s;
+    end
+
+    if ~improved
+        % Can't find an improving step -> increase damping and take a tiny step
+        lambda = min(lambda*10, 1.0);
+        q = min(max(q + 0.1*stepScale*dq, robot.qlim(:,1)), robot.qlim(:,2));
+    end
 end
 
 q_sol = q;

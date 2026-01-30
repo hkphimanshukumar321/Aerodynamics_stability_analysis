@@ -16,18 +16,22 @@ cfg.robot = robot_params_4dof();
 cfg.task = struct();
 
 % World coordinates (meters)
-cfg.task.pickPos  = [0.35;  0.10; 0.10];  % [x;y;z]
-cfg.task.placePos = [0.25; -0.20; 0.15];
+% Pick/place are chosen to be comfortably reachable given the default 4-DOF
+% geometry and joint limits (so IK is robust out-of-the-box).
+cfg.task.pickPos  = [0.380;  0.118; 0.121];  % [x;y;z]
+cfg.task.placePos = [0.295; -0.202; 0.146];
 
 cfg.task.approachDz = 0.12;   % approach height above pick/place
 cfg.task.liftDz     = 0.18;   % lift after pick
 
 % ---------------- IK settings ------------------
 cfg.ik = struct();
-cfg.ik.maxIters  = 300;
-cfg.ik.tolPos    = 1e-6;   % meters
-cfg.ik.lambda    = 1e-2;   % DLS damping
-cfg.ik.stepScale = 1.0;    % multiply dq step
+% NOTE: tolerances/robustness tuned for purely numerical Jacobian.
+% A 1e-6 m tolerance is often too strict with finite-difference Jacobians.
+cfg.ik.maxIters  = 800;
+cfg.ik.tolPos    = 1e-4;   % meters (0.1 mm)
+cfg.ik.lambda    = 5e-2;   % DLS damping (higher -> more robust)
+cfg.ik.stepScale = 1.0;    % base step scale (solver does its own line-search)
 
 % ---------------- Trajectory settings ----------
 cfg.traj = struct();

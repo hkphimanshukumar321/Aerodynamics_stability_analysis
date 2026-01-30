@@ -18,6 +18,11 @@ grid on; axis equal;
 xlabel('X (m)'); ylabel('Y (m)'); zlabel('Z (m)');
 title('End-effector Workspace (random joint sampling)');
 
-exportgraphics(fig, fullfile('results','workspace.png'));
+outFile = fullfile('results','workspace.png');
+if exist('exportgraphics','file')
+    exportgraphics(fig, outFile);
+else
+    saveas(fig, outFile);
+end
 close(fig);
 end

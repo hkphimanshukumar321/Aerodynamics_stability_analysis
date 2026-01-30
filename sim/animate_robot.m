@@ -22,10 +22,16 @@ text(cfg.task.placePos(1), cfg.task.placePos(2), cfg.task.placePos(3)+0.02, 'PLA
 hLine = plot3(0,0,0,'-o','LineWidth',3,'MarkerSize',6);
 
 makeVideo = cfg.makeVideo;
+vw = [];
 if makeVideo
-    vw = VideoWriter(cfg.video.filename, 'MPEG-4');
-    vw.FrameRate = cfg.video.fps;
-    open(vw);
+    try
+        vw = VideoWriter(cfg.video.filename, 'MPEG-4');
+        vw.FrameRate = cfg.video.fps;
+        open(vw);
+    catch
+        warning('VideoWriter unavailable/failed. Continuing without video.');
+        makeVideo = false;
+    end
 end
 
 t = traj.t;
@@ -50,7 +56,7 @@ for k = 1:length(t)
     end
 end
 
-if makeVideo
+if makeVideo && ~isempty(vw)
     close(vw);
 end
 
