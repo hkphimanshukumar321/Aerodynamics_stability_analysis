@@ -1,0 +1,18 @@
+Water Rocket Simulation Summary (Case A)
+===========================================
+
+Apogee (max altitude): 22.65 m
+Time to apogee: 1.80 s
+Time of flight (landing): 4.31 s
+
+Total impulse: 16.86 N*s
+Burn time: 0.13 s
+Max thrust: 250.07 N
+
+Stability (static margin, calibers)
+-----------------------------------
+Full bottle SM: 1.33
+Empty bottle SM: 0.08
+
+Outputs written to:
+  /MATLAB Drive/Aerodynamics_stability_analysis/results

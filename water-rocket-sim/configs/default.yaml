@@ -1,0 +1,71 @@
+project:
+  name: "2L Water Rocket Simulation"
+  author: ""
+  created_utc: ""
+
+environment:
+  g: 9.80665            # m/s^2
+  rho_air: 1.225        # kg/m^3 at sea level
+  p_atm: 101325.0       # Pa
+  T_air: 293.15         # K (20C)
+  wind_x: 0.0           # m/s (positive = tailwind)
+
+rocket:
+  # 2L PET bottle rough geometry
+  bottle_volume: 0.0020       # m^3 (2.0 L)
+  body_length: 0.32           # m (approx bottle length)
+  body_diameter: 0.105        # m (approx 2L bottle max diameter)
+  ref_area: 0.008659          # m^2 = pi*(D/2)^2
+
+  # Mass properties (tune if you have better numbers)
+  dry_mass: 0.18              # kg (bottle + fins + tape + payload)
+  dry_cg_from_nose: 0.18      # m (distance from nose tip)
+
+  # Fins (trapezoidal) for CP estimate
+  fins:
+    n: 3
+    span: 0.06                # m
+    root_chord: 0.09          # m
+    tip_chord: 0.04           # m
+    sweep_length: 0.03        # m (leading edge sweep)
+    thickness: 0.002          # m (not used in Barrowman)
+    x_root_le_from_nose: 0.23 # m (fin leading edge at root)
+
+  # Aerodynamics
+  Cd: 0.55                    # constant drag coefficient (typical water rocket)
+
+launch:
+  rail_length: 0.8            # m
+  angle_deg: 45.0             # degrees
+  z0: 0.0                     # initial altitude
+
+propulsion:
+  rho_water: 1000.0           # kg/m^3
+  gamma_air: 1.4
+  R_air: 287.05               # J/(kg*K)
+
+  nozzle:
+    diameter: 0.022           # m
+    Cd: 0.95                  # discharge coefficient
+
+  # Initial conditions
+  p0_gauge: 400000.0          # Pa gauge (e.g. 4 bar gauge)
+  water_fill_fraction: 0.35   # fraction of bottle volume filled with water
+
+simulation:
+  dt_prop: 1.0e-4             # s (propulsion profile time step)
+  tmax_prop: 5.0              # s
+  tmax_traj: 60.0             # s
+  rtol: 1.0e-7
+  atol: 1.0e-9
+
+cases:
+  - name: "Case_A"
+    p0_gauge: 300000.0
+    water_fill_fraction: 0.30
+  - name: "Case_B"
+    p0_gauge: 400000.0
+    water_fill_fraction: 0.35
+  - name: "Case_C"
+    p0_gauge: 500000.0
+    water_fill_fraction: 0.40
